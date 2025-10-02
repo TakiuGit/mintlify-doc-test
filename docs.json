@@ -14,7 +14,8 @@
             "tab": "Documentation",
             "pages": [
               "v2/getting-started",
-              "v2/linked-file"
+              "v2/linked-file",
+              "changelog"
             ]
           },
           {
