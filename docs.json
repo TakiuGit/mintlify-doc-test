@@ -6,7 +6,13 @@
     "primary": "#ff0000"
   },
   "navigation":{
-	  "pages":["README","user-guide/getting-started","open-api"]
+	  "pages":["README","user-guide/getting-started","open-api"],
+    "tabs": [
+    {
+        "tab": "API Reference",
+        "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
+    }
+  ]
   }
 }
 
