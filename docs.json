@@ -6,7 +6,7 @@
     "primary": "#ff0000"
   },
   "navigation":{
-	  "pages":["README","user-guide/getting-started"]
+	  "pages":["README","user-guide/getting-started","open-api"]
   }
 }
 
