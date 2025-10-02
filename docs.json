@@ -5,18 +5,19 @@
   "colors": {
     "primary": "#ff0000"
   },
-  "navigation":{
-	 
-      "tabs": [
+  "navigation": {
+    "tabs": [
       {
-          "tab": "API Reference",
-          "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
+        "tab": "Documentation",
+        "pages": [
+          "README",
+          "user-guide/getting-started"
+        ]
       },
-        {
-          "tab": "Documentation ",
-           "pages":["README","user-guide/getting-started","open-api"]
-        }
-  ]
+      {
+        "tab": "API Reference",
+        "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
+      }
+    ]
   }
 }
-
