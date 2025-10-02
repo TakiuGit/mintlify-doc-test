@@ -6,18 +6,36 @@
     "primary": "#ff0000"
   },
   "navigation": {
-    "tabs": [
+    "versions": [
       {
-        "tab": "Documentation",
-        "pages": [
-          "README",
-          "user-guide/getting-started"
+        "version": "1.0.0",
+        "tabs": [
+          {
+            "tab": "Documentation ",
+            "pages": [
+              "README",
+              "user-guide/getting-started"
+            ]
+          }
         ]
       },
       {
-        "tab": "API Reference",
-        "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
+        "version": "2.0.0",
+        "tabs": [
+          {
+            "tab": "API Reference",
+            "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
+          },
+          {
+            "tab": "Documentation ",
+            "pages": [
+              "README",
+              "user-guide/getting-started"
+            ]
+          }
+        ]
       }
     ]
   }
 }
+
