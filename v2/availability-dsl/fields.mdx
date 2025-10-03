@@ -1,0 +1,110 @@
+# Query fields
+
+By default, all fields belong to the `ctx` namespace and represent your content availability metadata.
+
+**Example**
+
+```SQL Find all the content in the country France
+country = "FR"
+```
+
+## Smart fields
+
+There exists a subset of supported field that have a dedicated behavior. These fields are dedicated to specific
+functionalities and all start with a `$`.
+
+### **lineup**
+
+Search for all content that have at least one matching channel contained in the lineup.
+
+|                       |                          |
+|-----------------------|--------------------------|
+| Syntax                | `$lineup`                |
+| Aliases               | `$::lineup`              |
+| Supported comparators | `IN`, `NIN`, `EQ`, `NEQ` |
+
+**Examples**
+
+```SQL Find content in lineup foo or bar
+$lineup IN ("foo","bar")
+```
+---
+
+### **offer**
+
+Search for all content that have at least one matching element contained in the offer.
+
+|                       |                          |
+|-----------------------|--------------------------|
+| Syntax                | `$offer`                 |
+| Aliases               | `$::offer`               |
+| Supported comparators | `IN`, `NIN`, `EQ`, `NEQ` |
+>
+
+**Examples**
+
+```SQL Find content in offer foo or bar
+$offer IN ("foo","bar")
+```
+---
+
+### **content type**
+
+Search for a content in a specific content type.
+Allowed values associated with this field: `VOD`,`TV`,`CATCHUP`
+
+|                       |                                 |
+|-----------------------|---------------------------------|
+| Syntax                | `$type`                         |
+| Aliases               | `$::type`                       |
+| Supported comparators | `IN`, `NIN`, `EQ`, `NEQ`, `ALL` |
+
+**Examples**
+
+```SQL Find VOD content
+$type = "VOD"
+```
+---
+
+## Namespaces
+
+Every field have an attributed namespace, being implicit by default to the `ctx` namespace.
+They can be explicitly written during the query by prefixing the field with `<namespace>::<field>`.
+
+**Examples**
+
+```SQL Find all the content in the country France
+ctx::country = "FR"
+```
+can also be expressed
+```SQL
+country = "FR"
+```
+
+### **content availability**
+
+The `ctx` namespace contains all the content availability metadata.
+It is used when needing to request on the content metadata only.
+
+```SQL Find all the content in the country France
+ctx::country = "FR"
+```
+---
+
+### **smart fields**
+
+The `$` namespace contains domain related resources that have specific behaviors.
+
+This namespace also provide a syntactic sugar that can skip the `::`.
+
+For more information see [Smart fields](#smart-fields)
+
+**Examples**
+
+```SQL Find all the content available in the foo lineup
+$::lineup = "foo"
+```
+can also be expressed
+```SQL
+$lineup = "foo"
+```

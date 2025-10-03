@@ -3,7 +3,11 @@
   "theme": "mint",
   "name": "Your Docs",
   "colors": {
-    "primary": "#ff0000"
+    "primary": "#5460e3"
+  },
+  "appearance": {
+    "strict": false,
+    "default": "light"
   },
   "navigation": {
     "versions": [
@@ -12,10 +16,29 @@
         "tabs": [
           {
             "tab": "Documentation",
-            "pages": [
-              "v2/getting-started",
-              "v2/linked-file",
-              "changelog"
+            "groups": [
+              {
+                "group": "Getting started",
+                "pages": [
+                  "v2/getting-started",
+                  "v2/linked-file",
+                  "changelog"
+                ]
+              },
+              {
+                "group": "User guide",
+                "pages": [
+                  {
+                    "group": "Availability filtering",
+                    "pages": [
+                      "v2/availability-dsl/availability-dsl",
+                      "v2/availability-dsl/comparators",
+                      "v2/availability-dsl/fields",
+                      "v2/availability-dsl/operators"
+                    ]
+                  }
+                ]
+              }
             ]
           },
           {
