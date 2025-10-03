@@ -1,0 +1,64 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Your Docs",
+  "colors": {
+    "primary": "#5460e3"
+  },
+  "appearance": {
+    "strict": false,
+    "default": "light"
+  },
+  "navigation": {
+    "versions": [
+      {
+        "version": "2.0.0",
+        "tabs": [
+          {
+            "tab": "Documentation",
+            "groups": [
+              {
+                "group": "Getting started",
+                "pages": [
+                  "v2/getting-started",
+                  "v2/linked-file",
+                  "changelog"
+                ]
+              },
+              {
+                "group": "User guide",
+                "pages": [
+                  {
+                    "group": "Availability filtering",
+                    "pages": [
+                      "v2/availability-dsl/availability-dsl",
+                      "v2/availability-dsl/comparators",
+                      "v2/availability-dsl/fields",
+                      "v2/availability-dsl/operators"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "API Reference",
+            "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
+          }
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "tabs": [
+          {
+            "tab": "Documentation",
+            "pages": [
+              "v1/getting-started"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

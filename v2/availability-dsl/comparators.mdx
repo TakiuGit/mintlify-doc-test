@@ -1,0 +1,106 @@
+# Comparators
+
+This page describes information about operators that are used for advanced searching.
+
+A comparator is one word which compares the value of a field on its left with one or more values on its right.
+
+### EQ
+
+**Syntax** : `EQ`,`=`
+
+The `EQ` comparator is used to search for metadata containing the exact match for the specified field.
+
+When passing multiples values, the `EQ` will search for an exact match. Meaning that if the content field has more
+values it will not match the request
+To find content where the value of the specified field must match multiple values, you may want to use the `AND`
+operator instead.
+
+**Examples**
+
+```SQL Content with the catalog foo
+catalog = foo
+```
+
+```SQL Content with exactly the catalog foo and bar
+catalog = ("foo","bar")
+```
+---
+
+### NEQ
+
+**Syntax** : `NEQ`,`!=`
+
+The `NEQ` comparator is used to search for metadata not containing the exact match for the specified field.
+
+When passing multiples values, the `NEQ` will search for an exact match. Meaning that if the content field has more
+values it will match the request.
+To find content where the value of the specified field must not match multiple values, you may want to use the `NIN`
+operator instead.
+
+**Examples**
+
+```SQL Content without the catalog foo
+catalog != foo
+```
+
+```SQL Content without exactly the catalog foo and bar
+catalog != ("foo","bar")
+```
+---
+
+### IN
+
+**Syntax** : `IN`
+
+The `IN` comparator is used to search for metadata containing one of the match for the specified field.
+
+Using `IN` is equivalent to using multiple `EQ` with a `OR` operator in a compact syntax.
+`catalog IN ("foo","bar")` can be expressed as `catalog = foo OR catalog = bar`.
+
+**Examples**
+
+
+```SQL Content in the catalog foo
+catalog IN foo
+```
+
+```SQL Content the catalog foo or bar
+catalog IN ("foo","bar")
+```
+
+### NIN
+
+**Syntax** : `NIN`
+
+The `NIN` comparator is used to search for metadata not containing any of the match for the specified field.
+
+Using `NIN` is equivalent to using multiple `NEQ` with a `AND` operator in a compact syntax.
+`catalog NIN ("foo","bar")` can be expressed as `catalog != foo AND catalog != bar`.
+
+**Examples**
+
+```SQL Content without the catalog foo
+catalog NIN "foo"
+```
+
+```SQL Content outside catalog foo and bar
+catalog NIN ("foo","bar")
+```
+---
+
+### ALL
+
+**Syntax** : `ALL`
+
+The `ALL` comparator is used to search for all metadata value in the specified field.
+A content with the specified field containing more than the requested elements will match the request.
+
+**Examples**
+
+```SQL Content outside the catalog foo
+catalog ALL "foo"
+```
+
+```SQL Content in catalog foo and bar
+catalog ALL ("foo","bar")
+```
