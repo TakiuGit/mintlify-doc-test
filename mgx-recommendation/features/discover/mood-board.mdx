@@ -1,0 +1,22 @@
+---
+
+title="Moodboard"
+description="An interactive board where users can click and combine keywords in order to display content which is most relevant to their selection."
+
+---
+
+The Spideo mood board consists of different clickable keywords, each being connected to its relevant titles in the catalog. The “creepy” keyword will, for instance, display the content items where it has the most weight (titles falling under the horror genre in this case) when clicked.
+
+Keywords can be combined to map any user’s needs with precision and display more relevant titles. For example, after selecting “creepy”, someone could also click on “beautiful” (which is a mood describing movies and shows with great cinematography or landscape), thus combining the 2 and displaying titles which could be described as “beautiful scary movies”. The first items shown are always the ones where the moods have the most weight and are most relevant.
+
+There is no limit to the number of keywords which can be combined, as long as in the catalog there is at least one title corresponding to the selection.
+
+### Endpoint
+
+```
+GET /search/vod/sfkeywords/{sfkeywordId}
+```
+
+### Use case
+
+A mood board could be integrated underneath a Search bar or in a Discovery or Exploration page, as its main purpose is to allow users to go beyond their personalized recommendations and discover new content.

@@ -1,11 +1,11 @@
 ---
-title: "Availability DSL"
+title: "Overview"
+description: "The Availability DSL allows you to express complex queries using a simple, readable syntax. This guide explains the
+supported features, syntax, and provides practical examples."
 
 ---
 
 
-The Availability DSL allows you to express complex queries using a simple, readable syntax. This guide explains the
-supported features, syntax, and provides practical examples.
 
 ## Basic Structure
 
@@ -16,16 +16,15 @@ using parentheses for precedence.
 
 **Examples**
 
-- Find all the VOD in the catalog foo.
-    ```SQL
-    catalog = "foo" AND $type = "VOD"
-    ```
-- Find all VOD in the catalog foo and all the TV or CATCHUP in the lineup xyz
-    ```SQL
-    ($type = "VOD" AND catalog = "foo")
-    OR
-    ($type IN ("TV","CATCHUP") AND $lineup = "xyz")
-    ```
+```SQL Find all the VOD in the catalog foo.
+catalog = "foo" AND $type = "VOD"
+```
+
+```SQL Find all VOD in the catalog foo and all the TV or CATCHUP in the lineup xyz
+($type = "VOD" AND catalog = "foo")
+OR
+($type IN ("TV","CATCHUP") AND $lineup = "xyz")
+```
 
 ## Clause composition
 
@@ -42,10 +41,6 @@ Clauses are composed with multiple elements
         Checkout how to use operators to compose queries.
     </Card>
 </Columns>
-
-- [Fields](./fields)
-- [Comparators](./comparators)
-- [Operators](./operators)
 
 ## Values
 

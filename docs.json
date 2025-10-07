@@ -1,18 +1,35 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Your Docs",
+  "name": "Mediagenix",
+  "favicon": "/images/mediagenix_icon_black_on_white_background.jpg",
+  "logo": {
+    "light": "/images/mediagenix_icon_black.png",
+    "dark": "/images/mediagenix_icon_white.png"
+  },
   "colors": {
-    "primary": "#5460e3"
+    "primary": "#5460e3",
+    "dark": "#5460e3",
+    "light": "#5460e3"
   },
   "appearance": {
     "strict": false,
     "default": "light"
   },
   "navigation": {
-    "versions": [
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Spideo Dashboard",
+          "icon": "link",
+          "href": "https://developers.spideo.tv/"
+        }
+      ]
+    },
+    "products": [
       {
-        "version": "2.0.0",
+        "product": "MGX Recommendation",
+        "icon": "hand-holding-heart",
         "tabs": [
           {
             "tab": "Documentation",
@@ -20,21 +37,70 @@
               {
                 "group": "Getting started",
                 "pages": [
-                  "v2/getting-started",
-                  "v2/linked-file",
+                  "mgx-recommendation/welcome",
+                  "mgx-recommendation/features/overview",
+                  "mgx-recommendation/integration",
                   "changelog"
                 ]
               },
               {
-                "group": "User guide",
+                "group": "Content curation",
+                "icon": "hand-holding-heart",
                 "pages": [
                   {
-                    "group": "Availability filtering",
+                    "group": "Personalization",
+                    "icon": "hand-holding-heart",
                     "pages": [
-                      "v2/availability-dsl/availability-dsl",
-                      "v2/availability-dsl/comparators",
-                      "v2/availability-dsl/fields",
-                      "v2/availability-dsl/operators"
+                      "mgx-recommendation/features/live-tv-habits",
+                      "mgx-recommendation/features/personalization",
+                      "mgx-recommendation/features/semantic-profile",
+                      "mgx-recommendation/features/semantic-explanation",
+                      "mgx-recommendation/features/thematic-playlist",
+                      "mgx-recommendation/features/watch-next"
+                    ]
+                  },
+                  {
+                    "group": "Discover",
+                    "icon": "globe",
+                    "pages": [
+                      "mgx-recommendation/features/discover/surprise",
+                      "mgx-recommendation/features/discover/mood-board",
+                      "mgx-recommendation/features/discover/top-trending"
+                    ]
+                  },
+                  {
+                    "group": "Search",
+                    "icon": "magnifying-glass",
+                    "pages": [
+                      "mgx-recommendation/features/search/text-search",
+                      "mgx-recommendation/features/search/personalized-search",
+                      "mgx-recommendation/features/search/autocomplete",
+                      "mgx-recommendation/features/search/beyond"
+                    ]
+                  },
+                  {
+                    "group": "Recommend",
+                    "icon": "magnifying-glass",
+                    "pages": [
+                      "mgx-recommendation/features/recommend/saga",
+                      "mgx-recommendation/features/recommend/similar",
+                      "mgx-recommendation/features/recommend/related-theme"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Availability",
+                "pages": [
+                  "mgx-recommendation/availability-filter/overview",
+                  {
+                    "group": "Availability filtering",
+                    "icon": "handcuffs",
+                    "pages": [
+                      "mgx-recommendation/availability-filter/dsl-overview",
+                      "mgx-recommendation/availability-filter/comparators",
+                      "mgx-recommendation/availability-filter/fields",
+                      "mgx-recommendation/availability-filter/operators"
                     ]
                   }
                 ]
@@ -48,12 +114,18 @@
         ]
       },
       {
-        "version": "1.0.0",
+        "product": "Mediagenix On-Demand",
+        "icon": "bullseye-pointer",
         "tabs": [
           {
             "tab": "Documentation",
-            "pages": [
-              "v1/getting-started"
+            "groups": [
+              {
+                "group": "Getting started",
+                "pages": [
+                  "v2/getting-started"
+                ]
+              }
             ]
           }
         ]
