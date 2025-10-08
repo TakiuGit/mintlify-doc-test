@@ -38,8 +38,9 @@
                 "group": "Getting started",
                 "pages": [
                   "mgx-recommendation/welcome",
-                  "mgx-recommendation/features/overview",
+                  "mgx-recommendation/feature-tour",
                   "mgx-recommendation/integration",
+                  "mgx-recommendation/security",
                   "changelog"
                 ]
               },
