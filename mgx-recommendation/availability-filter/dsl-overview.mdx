@@ -1,0 +1,51 @@
+---
+title: "Overview"
+description: "The Availability DSL allows you to express complex queries using a simple, readable syntax. This guide explains the
+supported features, syntax, and provides practical examples."
+
+---
+
+
+
+## Basic Structure
+
+A request is composed of one or more *clauses* combined with logical operators (`AND`, `OR`), *clauses* can be grouped
+using parentheses for precedence.
+- All whitespace are ignored except inside quoted values.
+- All keywords and field names are case-sensitive unless otherwise specified.
+
+**Examples**
+
+```SQL Find all the VOD in the catalog foo.
+catalog = "foo" AND $type = "VOD"
+```
+
+```SQL Find all VOD in the catalog foo and all the TV or CATCHUP in the lineup xyz
+($type = "VOD" AND catalog = "foo")
+OR
+($type IN ("TV","CATCHUP") AND $lineup = "xyz")
+```
+
+## Clause composition
+
+Clauses are composed with multiple elements
+
+<Columns cols={2}>
+    <Card title="Field" icon="list" href="./fields">
+        Checkout how to describe a field.
+    </Card>
+    <Card title="Comparators" icon="list" href="./comparators">
+        Checkout how to use a comparator in your queries.
+    </Card>
+    <Card title="Operators" icon="list" href="./comparators">
+        Checkout how to use operators to compose queries.
+    </Card>
+</Columns>
+
+## Values
+
+Values can be expressed with optional quotes when necessary.
+Simple quote (`'`) and double quote `"` are supported.
+Quotes can be escaped using backslash (`\`)
+
+**examples:** `foo`, `"foo"`, `'foo'`, `"fo\"o"`

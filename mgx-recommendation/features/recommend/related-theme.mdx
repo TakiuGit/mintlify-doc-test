@@ -1,0 +1,29 @@
+---
+
+title="Related Themes"
+description="Display several lists of related titles, sorted by automatically curated thematic combinations of keywords."
+
+---
+
+The “Thematic recommendations” feature is a feature that can generate up to 5 different recommendation lines, all related to a single title in your catalog.
+
+Each line is built using a pair of different keywords (moods and themes) found in the **Content Semantic Fingerprint** of the original item. In the end, every generated rail is made up of similar content, but for different reasons.
+
+If we take the example of a show such as *Scooby-Doo,* there are multiple reasons for which an audience may like it, therefore “thematic recommendations” can provide lines of similar content which vary accordingly. You could have lines such as:
+
+- More titles with “family-friendly” and “investigations: *Young Sherlock Holmes, Ace Ventura, Crocodile Dundee, ..*
+- More titles with “slapstick” and “anthropomorphic characters”: *TMNT, Paddington, Who frames Roger Rabbit,*
+- more titles with “strange” and “group of friends”: *Harry Potter, Night at the Museum, ..*
+
+This way, each user can go through a different recommendation path while browsing content files, while always keeping knowledge of why a content is similar to another.
+
+### Endpoint
+```
+GET /contents/{contentId}/pairs
+```
+
+More details on the [API documentation](/dev/null)
+
+## Did you know?
+
+Thematic recommendations, Thematic playlists and Surprise Me all follow the main principle of pairs of keywords with the purpose of content discovery.

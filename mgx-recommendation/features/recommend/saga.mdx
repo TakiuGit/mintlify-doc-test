@@ -1,0 +1,43 @@
+---
+
+title="Saga"
+description="Display titles which are part of the same saga."
+
+---
+
+
+
+Use the “Saga” endpoint to display all titles part of the same saga in a separate line.
+
+For instance, it may be interesting to separately display all other Harry Potter films on a rail when any Harry Potter film is being consulted.
+
+You could therefore have *Harry Potter and the prisoner of Azkaban,* a line of Similar titles but also a line of all other Harry Potter titles.
+
+Important: Saga is also pre-existent in the Similar feature. If a film is part of a saga, the chronologically next title will appear first in the Similar recommendations line, as if it was boosted.
+
+Using the same *Harry Potter and the Prisoner of Azkaban* example, in this situation the first film shown in the Similar line would be *Harry Potter and the Goblet of Fire*, which is the 4th film in the Harry Potter Saga (*Prisoner of Azkaban* being the 3rd).
+
+### Endpoint
+
+```
+GET /contents/{contentId}/saga
+```
+
+More details on the [API documentation](/dev/null)
+
+### Use case
+
+Depending on the User Interface, the Saga endpoint could be displayed in a separate clickable tab with a catchy title such as “Harry Potter Universe” or “Star Wars Universe”.
+
+This way it is completely separated from the similar, “more like this” rail, being in a different tab.
+
+### Did you know?
+
+There is a specific priority order in a “Similar” line when titles are part of a specific situation such as “Saga”.
+
+The priority order is the following:
+
+1. Saga
+2. Manually boosted
+3. Boost list
+4. Normal similar results.

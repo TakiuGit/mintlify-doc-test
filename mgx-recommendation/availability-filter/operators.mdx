@@ -1,0 +1,47 @@
+# Logical Operators
+
+### AND
+
+**Syntax** : `AND`,`&&`
+
+Used to combine multiple clauses, allowing you to refine your search. All clauses must match.
+
+Note that you can use parentheses to control the order in which clauses are executed.
+
+**Examples**
+
+```SQL Find all content in the catalog foo available in FR
+catalog = "foo" AND country = "FR"
+```
+---
+
+### OR
+
+**Syntax** : `OR`,`||`
+
+Used to combine multiple clauses, allowing you to refine your search. Any clauses must match.
+
+Note that you can use parentheses to control the order in which clauses are executed.
+
+**Examples**
+
+```SQL Find all content in the catalog foo or bar
+catalog = "foo" OR catalog = "bar"
+```
+---
+
+### NOT
+
+**Syntax** : `NOT(...)`,`!(...)`
+
+User to negate any clause, or combination of clauses, encapsulated by parenthesis.
+
+**Examples**
+
+```SQL Find all content not part of the catalog foo and in the country FR
+NOT( catalog = "foo" and country = "FR" )
+```
+
+```SQL Find all content not part of the catalog foo and not in the country FR
+NOT( catalog = "foo" ) and NOT( country = "FR" )
+```

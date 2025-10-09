@@ -1,0 +1,32 @@
+---
+
+title="Similar"
+description="Display a list of related titles based on their similarity to the original content item."
+
+---
+
+The “Similar” feature is the classic “related content” or “more like this” feature, displaying a line of titles from the catalog that are most similar to the content the user is currently consulting.
+
+The main data used to calculate the similarity is the semantics attributed to each content (**Content Semantic Fingerprint**).
+
+For instance, Martin Scorsese’s *The Wolf of Wall Street* would display a similar line with titles such as *Wall Street*, *The Big Short, Limitless, The People vs. Larry Flynt,* etc*. (*of course, given they are all available on the platform, otherwise the titles would be the most semantically similar films and shows found on the catalog).
+
+When used through the CATCHUP and LIVE modes, Similar provides by default recommendations at the episode level, meaning that for any TV show episode, Similar recommendations will point towards other episodes, and not full shows.
+
+It is possible to modify this option and trigger recommendations at series’ level instead, recommending full shows instead of just episodes.
+
+### Endpoint
+
+```
+GET /contents/{contentId}/similar/{universes}
+```
+
+More details on the [API documentation](/dev/null)
+
+### Use case
+
+The Similar rail is usually integrated right under the content info and play box on a content file, with a description such as “More like this” / “Related” / “Similar” / and so on.
+
+### Did you know?
+
+Similar is the feature used by Search Beyond Catalog when displaying alternative available titles to a user searching for a piece of media which is unavailable on your platform.

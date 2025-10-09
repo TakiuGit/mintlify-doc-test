@@ -1,0 +1,34 @@
+---
+
+title="Semantic Profile"
+description="A user’s semantic profile, consisting of clickable moods and themes which update in real time as the user interacts with content in order to better reflect taste habits."
+
+---
+
+The ***Semantic profile*** is a feature which makes the connection and opens the dialogue between users and the personalized recommendation algorithm.
+
+It consists of the 10 keywords (moods and themes) that are most relevant to the user’s watching habits. The taste profile updates in real time and can be reset at any point by the users, giving them the freedom of understanding and controlling the algorithm.
+
+It is an open window to the “For You” line, as the reflected topics are at the heart of algorithm which will generate the personalized line.
+
+When displayed together with a “For You” line, the moods and themes shown are clickable and can be applied as a filter, for more precise recommendations and discovery of new titles.
+
+### Endpoint(s)
+
+```
+GET /users/{user}/fingerprint
+```
+
+More details on the [API documentation](/dev/null)
+
+### Use case
+
+For instance, someone usually watching comedies and sitcoms may have their USF and personalized recommendations altered by a recent binge of horror movies with friends after a Halloween get together.
+
+Some horror-specific keywords may appear in their profile in that case. With the Spideo USF, they can interact with their favorite topics to filter the recommendations, e.g. clicking on the “Laughs” mood and “wacky” theme will only trigger comedies in the recommendations.
+
+They also have the freedom reset their profile and start over if they feel the influence of their recent watches has become too overwhelming.
+
+### Did you know?
+
+This feature has to be connected to the search keywords feature, as it’s usually integrated as an interactive Taste Profile where users can click on keywords to find more specific content.
