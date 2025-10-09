@@ -17,19 +17,20 @@
     "default": "light"
   },
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Spideo Dashboard",
-          "icon": "link",
-          "href": "https://developers.spideo.tv/"
-        }
-      ]
-    },
+
     "products": [
       {
         "product": "MGX Recommendation",
         "icon": "hand-holding-heart",
+        "global": {
+          "anchors": [
+            {
+              "anchor": "Spideo Dashboard",
+              "icon": "link",
+              "href": "https://developers.spideo.tv/"
+            }
+          ]
+        },
         "tabs": [
           {
             "tab": "Documentation",
@@ -120,11 +121,29 @@
         "tabs": [
           {
             "tab": "Documentation",
-            "groups": [
+            "versions": [
               {
-                "group": "Getting started",
-                "pages": [
-                  "v2/getting-started"
+                "version": "latest",
+                "groups": [
+                  {
+                    "group": "Getting started",
+                    "pages": [
+                      "mgx-on-demand/latest/welcome",
+                      "mgx-on-demand/latest/linked-file"
+                    ]
+                  }
+                ]
+              },
+              {
+                "version": "v1",
+                "groups": [
+                  {
+                    "group": "Getting started",
+                    "pages": [
+                      "mgx-on-demand/v1/welcome",
+                      "mgx-on-demand/v1/linked-file"
+                    ]
+                  }
                 ]
               }
             ]
