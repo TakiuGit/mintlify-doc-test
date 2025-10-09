@@ -33,11 +33,6 @@ This includes content that do not contain the specified field.
 When passing multiple values, any of the value quested are searched in order to reject a match
 `catalog NIN ("foo","bar")` can be expressed as `catalog != foo OR catalog != bar`.
 
-<Note>
-    `"catalogs" NIN "foo"` does not produce the same result as `NOT ("catalogs" IN "foo")` as `IN` ensure the field
-    existence
-</Note>
-
 **Examples**
 
 ```SQL Content without the catalog foo
