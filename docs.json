@@ -17,7 +17,6 @@
     "default": "light"
   },
   "navigation": {
-
     "products": [
       {
         "product": "MGX Recommendation",
@@ -37,6 +36,7 @@
             "groups": [
               {
                 "group": "Getting started",
+                "tag": "test",
                 "pages": [
                   "mgx-recommendation/welcome",
                   "mgx-recommendation/feature-tour",
@@ -112,6 +112,10 @@
           {
             "tab": "API Reference",
             "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
+          },
+          {
+            "tab": "API Reference spideo",
+            "openapi": "mgx-recommendation/api/Spideo-API-production-swagger-apigateway.json"
           }
         ]
       },
@@ -121,29 +125,26 @@
         "tabs": [
           {
             "tab": "Documentation",
-            "versions": [
+            "dropdowns": [
               {
-                "version": "latest",
-                "groups": [
-                  {
-                    "group": "Getting started",
-                    "pages": [
-                      "mgx-on-demand/latest/welcome",
-                      "mgx-on-demand/latest/linked-file"
-                    ]
-                  }
+                "dropdown": "v1",
+                "icon": "book-open",
+                "pages": [
+                  "mgx-on-demand/v1/welcome"
                 ]
               },
               {
-                "version": "v1",
-                "groups": [
-                  {
-                    "group": "Getting started",
-                    "pages": [
-                      "mgx-on-demand/v1/welcome",
-                      "mgx-on-demand/v1/linked-file"
-                    ]
-                  }
+                "dropdown": "v2",
+                "icon": "square-terminal",
+                "pages": [
+                  "mgx-on-demand/v2/welcome"
+                ]
+              },
+              {
+                "dropdown": "v3",
+                "icon": "square-terminal",
+                "pages": [
+                  "mgx-on-demand/v2/welcome"
                 ]
               }
             ]

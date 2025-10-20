@@ -13,57 +13,131 @@ country = "FR"
 There exists a subset of supported field that have a dedicated behavior. These fields are dedicated to specific
 functionalities and all start with a `$`.
 
-### **lineup**
-
-Search for all content that have at least one matching channel contained in the lineup.
-
-|                       |                          |
-|-----------------------|--------------------------|
-| Syntax                | `$lineup`                |
-| Aliases               | `$::lineup`              |
-| Supported comparators | `IN`, `NIN`, `EQ`, `NEQ` |
-
-**Examples**
-
-```SQL Find content in lineup foo or bar
-$lineup IN ("foo","bar")
-```
----
-
-### **offer**
-
-Search for all content that have at least one matching element contained in the offer.
-
-|                       |                          |
-|-----------------------|--------------------------|
-| Syntax                | `$offer`                 |
-| Aliases               | `$::offer`               |
-| Supported comparators | `IN`, `NIN`, `EQ`, `NEQ` |
->
-
-**Examples**
-
-```SQL Find content in offer foo or bar
-$offer IN ("foo","bar")
-```
----
-
 ### **content type**
 
 Search for a content in a specific content type.
 Allowed values associated with this field: `VOD`,`TV`,`CATCHUP`
 
-|                       |                                 |
-|-----------------------|---------------------------------|
-| Syntax                | `$type`                         |
-| Aliases               | `$::type`                       |
-| Supported comparators | `IN`, `NIN`, `EQ`, `NEQ`, `ALL` |
+|                       |                    |
+|-----------------------|--------------------|
+| Syntax                | `$type`            |
+| Supported comparators | `IN`, `NIN`, `ALL` |
 
 **Examples**
 
 ```SQL Find VOD content
 $type = "VOD"
 ```
+---
+
+### **lineups**
+
+Search for all content that have at least one matching `channels` field containing one of the lineup channel.
+When used with the comparator `ALL`, the content must be present in as least one channel in each requested lineup.
+
+<note>
+    This filter do not apply any additional filter on the content type.
+    This mean that requesting for `$lineups NIN "channel"` can also return VOD contents.
+</note>
+
+|                       |                    |
+|-----------------------|--------------------|
+| Syntax                | `$lineups`         |
+| Supported comparators | `IN`, `NIN`, `ALL` |
+
+**Examples**
+
+```SQL Find content in lineup foo or bar
+$lineups IN ("foo","bar")
+```
+---
+
+### **network-lineups**
+
+Search for all content that have at least one matching channel contained in any lineup where the channel is referenced.
+This is use-full when you need to request for a network of channel by only having a reference to one of the channel in the network.
+
+<note>
+    Filtering on network-lineups will result in the exclusion of the VOD.
+    `$nl NIN "foo"` will return only TV of catchup elements
+</note>
+
+|                       |                    |
+|-----------------------|--------------------|
+| Syntax                | `$network-lineups` |
+| Aliases               | `$nl`              |
+| Supported comparators | `IN`, `NIN`        |
+
+**Examples**
+
+```SQL Find content in lineup foo or bar
+$lineups IN ("foo","bar")
+```
+---
+
+
+### **offers**
+
+Search for all content that have at least one matching element contained in the offer.
+
+|                       |                    |
+|-----------------------|--------------------|
+| Syntax                | `$offers`          |
+| Supported comparators | `IN`, `NIN`, `ALL` |
+
+**Examples**
+
+```SQL Find content in offer foo or bar
+$offers IN ("foo","bar")
+```
+---
+
+### **perimeters**
+
+Search for all content that have at least one matching perimeter.
+Perimeters values are extracted from the `channels` and `catalogs` and applied onto their respective content type.
+
+<note>
+    This parameter is usefully if you don't make distinction between live, catchup and VOD
+</note>
+
+|                       |               |
+|-----------------------|---------------|
+| Syntax                | `$perimeters` |
+| Aliases               | `$prm`        |
+| Supported comparators | `IN`, `NIN`   |
+
+**Examples**
+
+Given that it exists a catalogs "foo" and a channel "bar" we can search content in any of those two scope without explicit distinction.
+```SQL Find content in catalogs foo or channel bar
+$perimeters IN ("foo","bar")
+```
+---
+
+### **parental-rating**
+
+Search for all content that have up to the requested parental
+rating given the declared order of the business rules `parentalRating`.
+If the requested authority is not present in the `parentalRating` BR, or have a requested value not described in it,
+the returned element will only match the requested authority at the requested value
+
+|                       |                    |
+|-----------------------|--------------------|
+| Syntax                | `$parental-rating` |
+| Aliases               | `$pr`              |
+| Supported comparators | `IN`               |
+
+**Examples**
+
+Given the `parentalRating` set up with the following list for the `MPA` authority: [`G`, `PG`,`PG-13`, `R`, `NC-17`]
+```SQL Find content for PG-13 or less
+$parental-rating = "MPA:PG-13"
+```
+<note>
+    Behind the scene, the filter exclude all the content above the requested value. This mean that content without any
+    parental rating value will be included in the results. If you need strict control, prefer using a detailed query.
+</note>
 ---
 
 ## Namespaces
@@ -102,9 +176,9 @@ For more information see [Smart fields](#smart-fields)
 **Examples**
 
 ```SQL Find all the content available in the foo lineup
-$::lineup = "foo"
+$::lineups = "foo"
 ```
 can also be expressed
 ```SQL
-$lineup = "foo"
+$lineups = "foo"
 ```
