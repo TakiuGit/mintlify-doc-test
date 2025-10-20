@@ -35,10 +35,10 @@ $type = "VOD"
 Search for all content that have at least one matching `channels` field containing one of the lineup channel.
 When used with the comparator `ALL`, the content must be present in as least one channel in each requested lineup.
 
-<note>
+<Note>
     This filter do not apply any additional filter on the content type.
     This mean that requesting for `$lineups NIN "channel"` can also return VOD contents.
-</note>
+</Note>
 
 |                       |                    |
 |-----------------------|--------------------|
@@ -57,10 +57,10 @@ $lineups IN ("foo","bar")
 Search for all content that have at least one matching channel contained in any lineup where the channel is referenced.
 This is use-full when you need to request for a network of channel by only having a reference to one of the channel in the network.
 
-<note>
+<Note>
     Filtering on network-lineups will result in the exclusion of the VOD.
     `$nl NIN "foo"` will return only TV of catchup elements
-</note>
+</Note>
 
 |                       |                    |
 |-----------------------|--------------------|
@@ -97,9 +97,9 @@ $offers IN ("foo","bar")
 Search for all content that have at least one matching perimeter.
 Perimeters values are extracted from the `channels` and `catalogs` and applied onto their respective content type.
 
-<note>
+<Note>
     This parameter is usefully if you don't make distinction between live, catchup and VOD
-</note>
+</Note>
 
 |                       |               |
 |-----------------------|---------------|
@@ -134,10 +134,10 @@ Given the `parentalRating` set up with the following list for the `MPA` authorit
 ```SQL Find content for PG-13 or less
 $parental-rating = "MPA:PG-13"
 ```
-<note>
+<Note>
     Behind the scene, the filter exclude all the content above the requested value. This mean that content without any
     parental rating value will be included in the results. If you need strict control, prefer using a detailed query.
-</note>
+</Note>
 ---
 
 ## Namespaces
