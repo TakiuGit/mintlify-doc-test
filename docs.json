@@ -82,7 +82,7 @@
                   },
                   {
                     "group": "Recommend",
-                    "icon": "magnifying-glass",
+                    "icon": "bars-staggered",
                     "pages": [
                       "mgx-recommendation/features/recommend/saga",
                       "mgx-recommendation/features/recommend/similar",
@@ -97,7 +97,7 @@
                   "mgx-recommendation/availability-filter/overview",
                   {
                     "group": "Availability filtering",
-                    "icon": "handcuffs",
+                    "icon": "filter",
                     "pages": [
                       "mgx-recommendation/availability-filter/dsl-overview",
                       "mgx-recommendation/availability-filter/comparators",
