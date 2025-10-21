@@ -1,70 +1,80 @@
 ---
 title: "Integration"
 description: "Workflow to integrate with the spideo APIs."
-
 ---
 
 ## Integration steps
+
 Integrate in 3 simple steps.
 
 <Steps>
-    <Step title="Week 1">
-        **Setup and upload** your **catalog** in XML, JSON, or CSV via Spideo’s API.
-    </Step>
-    <Step title="Next 24 hours">
-        We take the catalog you sent us and:
-        1. prepare your databases
-        2. configure your secured API endpoints
+  <Step title="Week 1">
+    **Setup and upload** your **catalog** in XML, JSON, or CSV via Spideo’s API.
+  </Step>
+  <Step title="Next 24 hours">
+    We take the catalog you sent us and:
 
-        We bring you through the API documentation and help with integration.
-    </Step>
-    <Step title="Last 2 to 3 weeks">
-        You integrate Spideo. We assist with:
+    1. prepare your databases
+    2. configure your secured API endpoints
 
-        1. starting with similar content-to-content, C2C recommendations
-        2. and then evolving to personalized user-to-content, U2C recommendations
-    </Step>
+    We bring you through the API documentation and help with integration.
+  </Step>
+  <Step title="Last 2 to 3 weeks">
+    You integrate Spideo. We assist with:
+
+    1. starting with similar content-to-content, C2C recommendations
+    2. and then evolving to personalized user-to-content, U2C recommendations
+  </Step>
 </Steps>
+
+| | | |
+| --- | --- | --- |
+| | | |
+| | | |
 
 ## Prepare for setup
 
 ### VOD and Catch-up
-    Send your content catalog for our data crafters to analyze.
 
-    We'll need the following metadata:
-    - provider ID
-    - series ID
-    - season ID
-    - content title
-    - director’s name
-    - content type
-    - content availability
-    - catch-up stores
+Send your content catalog for our data crafters to analyze.
 
+We'll need the following metadata:
 
-###  Linear TV and EPG
+- provider ID
+- series ID
+- season ID
+- content title
+- director’s name
+- content type
+- content availability
+- catch-up stores
+
+### Linear TV and EPG
 
 #### EPG providers
-    Do you work with **Gracenote**, **MediaPress**, **Redbee**, **Tivo**, others?
 
-    Follow the standard linear TV integration process. Send us:
-    - the list of TV channels eligible for recommendations
-    - the name of each TV channel
-    - the metadata provider’s ID correlated to each channel
-    - the language used to broadcast each TV Channel
-    - access to your EPG grid via API or FTP
+Do you work with **Gracenote**, **MediaPress**, **Redbee**, **Tivo**, others?
+
+Follow the standard linear TV integration process. Send us:
+
+- the list of TV channels eligible for recommendations
+- the name of each TV channel
+- the metadata provider’s ID correlated to each channel
+- the language used to broadcast each TV Channel
+- access to your EPG grid via API or FTP
 
 #### Custom EPG
 
-    Work with local metadata providers or use your own metadata?
+Work with local metadata providers or use your own metadata?
 
-    Follow the non-standard linear TV integration process. Send us:
-    - the name of the TV channels
-    - the ID of the TV channels
-    - the language
-    - the titles
-    - airing time
-    - short content descriptions
+Follow the non-standard linear TV integration process. Send us:
+
+- the name of the TV channels
+- the ID of the TV channels
+- the language
+- the titles
+- airing time
+- short content descriptions
 
 ## Next step
 
@@ -78,13 +88,15 @@ We perform data enrichment 7 days in advance and immediately before broadcast.
 
 ### Daily import and export
 
-We run automated import script every day, of faster depending on your needs.\
+We run automated import script every day, of faster depending on your needs.\\
+
 - Adding new incoming content
 - Updating are removing old content
 
 ### User history
 
 You can send the user interactions by:
+
 - calling the API endpoint to directly push user interaction on the go
 - sending history file on a daily basis
 
