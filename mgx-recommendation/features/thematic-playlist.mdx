@@ -1,0 +1,35 @@
+---
+
+title="Thematic Playlists"
+description="Personalized playlists organized by semantic pairs relevant to each user’s tastes."
+
+---
+
+All titles in the Spideo database are indexed with semantic keywords (see **Semantics**. The more users interact with content, the more the Spideo algorithms can better understand their preferences and build their **Thematic profile.**
+
+The “Thematic playlists” feature displays lines of automatically curated playlists based on each user’s favorite topics. Each line is presented as a combination of two keywords which are most relevant to each user’s tastes.
+
+For instance, someone usually watching action movies and Marvel universe movies could have thematic playlists such as:
+
+- “superheroes & spectacular”
+- “beat the clock & martial arts”
+
+Thematic playlists can be implemented with nature language phrases in order to have a closer connection with the users and allow discovery of content in a more human, intuitive manner. The previous 2 examples would therefore be presented as:
+
+- “spectacular movies with superheroes”
+- “martial arts movies with a countdown”
+
+Thematic Playlists are usually being displayed as a “Because you like” rail, thus making a complete recommendation phrase:
+
+- Because you like spectacular movies with superheroes
+- For you - “martial arts movies with a countdown”
+
+### Endpoint
+```
+GET /users/{user}/recommendation/{universes}/categories
+```
+### Use case
+
+Thematic Playlists are a great tool to keep users engaged and help them explore the catalog while sticking to their favorite topics.
+
+Adding one or two Thematic playlists to each user’s homepage on the platform can dramatically increase their watching habits.

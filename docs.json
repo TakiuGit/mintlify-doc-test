@@ -1,0 +1,153 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Mediagenix",
+  "favicon": "/images/mediagenix_icon_black_on_white_background.jpg",
+  "logo": {
+    "light": "/images/mediagenix_icon_black.png",
+    "dark": "/images/mediagenix_icon_white.png"
+  },
+  "colors": {
+    "primary": "#5460e3",
+    "dark": "#5460e3",
+    "light": "#5460e3"
+  },
+  "appearance": {
+    "strict": false,
+    "default": "light"
+  },
+  "navigation": {
+    "products": [
+      {
+        "product": "MGX Recommendation",
+        "icon": "hand-holding-heart",
+        "global": {
+          "anchors": [
+            {
+              "anchor": "Spideo Dashboard",
+              "icon": "link",
+              "href": "https://developers.spideo.tv/"
+            }
+          ]
+        },
+        "tabs": [
+          {
+            "tab": "Documentation",
+            "groups": [
+              {
+                "group": "Getting started",
+                "tag": "test",
+                "pages": [
+                  "mgx-recommendation/welcome",
+                  "mgx-recommendation/feature-tour",
+                  "mgx-recommendation/integration",
+                  "mgx-recommendation/security",
+                  "changelog"
+                ]
+              },
+              {
+                "group": "Content curation",
+                "icon": "hand-holding-heart",
+                "pages": [
+                  {
+                    "group": "Personalization",
+                    "icon": "hand-holding-heart",
+                    "pages": [
+                      "mgx-recommendation/features/live-tv-habits",
+                      "mgx-recommendation/features/personalization",
+                      "mgx-recommendation/features/semantic-profile",
+                      "mgx-recommendation/features/semantic-explanation",
+                      "mgx-recommendation/features/thematic-playlist",
+                      "mgx-recommendation/features/watch-next"
+                    ]
+                  },
+                  {
+                    "group": "Discover",
+                    "icon": "globe",
+                    "pages": [
+                      "mgx-recommendation/features/discover/surprise",
+                      "mgx-recommendation/features/discover/mood-board",
+                      "mgx-recommendation/features/discover/top-trending"
+                    ]
+                  },
+                  {
+                    "group": "Search",
+                    "icon": "magnifying-glass",
+                    "pages": [
+                      "mgx-recommendation/features/search/text-search",
+                      "mgx-recommendation/features/search/personalized-search",
+                      "mgx-recommendation/features/search/autocomplete",
+                      "mgx-recommendation/features/search/beyond"
+                    ]
+                  },
+                  {
+                    "group": "Recommend",
+                    "icon": "bars-staggered",
+                    "pages": [
+                      "mgx-recommendation/features/recommend/saga",
+                      "mgx-recommendation/features/recommend/similar",
+                      "mgx-recommendation/features/recommend/related-theme"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Availability",
+                "pages": [
+                  "mgx-recommendation/availability-filter/overview",
+                  {
+                    "group": "Availability filtering",
+                    "icon": "filter",
+                    "pages": [
+                      "mgx-recommendation/availability-filter/dsl-overview",
+                      "mgx-recommendation/availability-filter/comparators",
+                      "mgx-recommendation/availability-filter/fields",
+                      "mgx-recommendation/availability-filter/operators"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "API Reference",
+            "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
+          }
+        ]
+      },
+      {
+        "product": "Mediagenix On-Demand",
+        "icon": "bullseye-pointer",
+        "tabs": [
+          {
+            "tab": "Documentation",
+            "dropdowns": [
+              {
+                "dropdown": "v1",
+                "icon": "book-open",
+                "pages": [
+                  "mgx-on-demand/v1/welcome"
+                ]
+              },
+              {
+                "dropdown": "v2",
+                "icon": "square-terminal",
+                "pages": [
+                  "mgx-on-demand/v2/welcome"
+                ]
+              },
+              {
+                "dropdown": "v3",
+                "icon": "square-terminal",
+                "pages": [
+                  "mgx-on-demand/v2/welcome"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

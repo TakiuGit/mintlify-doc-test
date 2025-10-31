@@ -1,0 +1,27 @@
+---
+
+title="Search Beyond Catalog"
+description="Show relevant content to the user even when a searched title is not available in your catalog."
+
+---
+
+With Search Beyond Catalog, show users the most semantically accurate results even when you don’t have the content they search for.
+
+First of all, **Autocomplete** and FAYT (Find-as-you-type) features will help quickly identify the exact movie or TV show title the user has started typing in the search bar. It’s an intersectional search, as titles will be shown wether they are available or not on the platform.
+
+If the queried content is unavailable, Search Beyond will identify its **Semantic Fingerprint** and use it to show the **most semantically similar contents** which are available on the current platform.
+
+For instance, a user might search for Netflix’s famous tv show *La Casa de Papel* (or *Money Heist*) and you may not have it available in your catalog. Instead of showing no results, Search Beyond Catalog can be used to identify *La Casa de Papel’s* semantic fingerprint and compare it to all titles in your catalog, thus showing relevant similar content items, such as *Inside Man.*
+
+### Endpoint
+```
+GET /search/v2/vod/beyond/{text}
+```
+
+More details on the [API documentation](/dev/null)
+
+### Use case
+
+You can use Search Beyond Catalog to boost discovery over titles overshadowed by the popularity of similar movies and shows.
+
+You can also use it to keep users engaged. If someone found themselves a new affinity for a certain type of movie or TV show on another platform, you can help them further discover new content while keeping them on your platform.
