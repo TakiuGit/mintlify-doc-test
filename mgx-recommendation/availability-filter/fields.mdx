@@ -122,6 +122,8 @@ rating given the declared order of the business rules `parentalRating`.
 If the requested authority is not present in the `parentalRating` BR, or have a requested value not described in it,
 the returned element will only match the requested authority at the requested value
 
+Passing the same authority with multiple will only take the last one into account.
+
 |                       |                    |
 |-----------------------|--------------------|
 | Syntax                | `$parental-rating` |
