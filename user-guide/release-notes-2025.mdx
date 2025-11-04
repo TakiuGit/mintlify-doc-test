@@ -1,0 +1,201 @@
+---
+title: "Copy-paste of RN topic"
+description: "Trial to see how easily migration would be > very easy, hardly had to change anything, everything seemed to be correctly migrated to the equivalent in mintlify"
+---
+
+# **_Release notes_**
+
+## **1. 2025r8​**
+
+### **1.1. Story arc only on episode and program calls in content API YAML​**
+
+In version 2025r6, the [story arc title](https://whatsonknowledgebase.mediagenix.tv/latest_version/Content/ReleaseNotes/RN2025/Release%20Notes%202025r6.000/Story_arc_title_on_products_and_planning_issue.htm) was introduced on content. It was also added to the content API. However, due to an error, it was added to most content calls, while it is not relevant for all content.
+
+From this version, the `storyArcTitle` attribute has been changed to `storyArc` in the YAML.
+
+Additionally, the attribute only remains in the YAML for the following calls:
+
+- Program
+  - `POST /programs`
+  - `PUT /programs/{contentId}`
+  - `GET /programs/{contentId}`
+  - `POST /programs/{contentId}/versions/{versionId}`
+- Episode
+  - `POST /episodes`
+  - `PUT /episodes/{contentId}`
+  - `GET /episodes/{contentId}`
+  - `POST /episodes/{contentId}/versions/{versionId}`
+
+However, the new naming was not updated in the system, meaning it still
+
+- expects `storyArcTitle` for POST and PUT calls;
+- returns `storyArcTitle` in the GET calls.
+
+This will be corrected in an upcoming version.
+
+## **2. 2025r6​**
+
+### **2.1. Machine in content API​**
+
+In 2025r4, the [calculation of machines was improved](https://whatsonknowledgebase.mediagenix.tv/latest_version/Content/ReleaseNotes/RN2025/Release_Notes_2025r4.000/Machine_improvements.htm). This introduced the machine property also on products. Previously, these changes were not yet present in the content API.
+
+From this version, the `machine` attribute has been added to the following calls:
+
+| Concept  | Calls                                                                                                                     |
+| :------- | :------------------------------------------------------------------------------------------------------------------------ |
+| Products | GET /products/{contentId}                                                                                                 |
+| Programs | - POST /programs - PUT /programs{contentId} - GET /programs/{contentId} - POST /programs/{contentId}/version/{versionId}  |
+| Series   | - POST /series - PUT /series/{contentId} - GET /series/{contentId}                                                        |
+| Seasons  | - POST /seasons - PUT /seasons/{contentId} - GET /seasons/{contentId} - POST /programs/{contentId}/version/{versionId}    |
+| Episodes | - POST /episodes - PUT /episodes/{contentId} - GET /episodes/{contentId} - POST /programs/{contentId}/version/{versionId} |
+
+When the parameters for [version](https://www.mediagenix.tv/api-j7d2XD7sFqcdWGeS/docs/Latest_version/Content/Mediagenix%20Base/Content%20API/Release%20notes%202024.htm#Paramete) and [series to episode](https://www.mediagenix.tv/api-j7d2XD7sFqcdWGeS/docs/Latest_version/Content/Mediagenix%20Base/Content%20API/Release%20notes%202023.htm#Paramete3) inheritance are added to the URL of the applicable calls, the machine is also inherited.
+
+An example of part of the body of the `POST /programs` call with the `machine` attribute:
+
+```json
+{
+    "contentId": "143048527",
+    "contentType": "program",
+    "title": "AVENGERS: ENDGAME",
+    "duration": "02:43:00",
+    "productCode": "MCU25-",
+    "productionCompanies": [],
+    "type": "Production",
+    "department": "Movies",
+    ...
+    "dvdReleaseDate": null,
+    "dvdReleaseDateForeign": "2020-04-01",
+    "sigmaId": "42653899-4d52-4046-b531-ec5fc544be74",
+    "targetGroup": null,
+    "machine": "Online",
+    "masterVersionId": null,
+  ...
+}
+```
+
+The attribute uses the API reference of the value in the **Machine** drop-down list. A `GET /machines` call has been added to retrieve all the active values and their references.
+
+An example of the response:
+
+```
+[
+    {
+        "id": "IE",
+        "name": "Ireland machine"
+    },
+    {
+        "id": "BE",
+        "name": "Belgian machine"
+    }
+]
+```
+
+**_API developers_**
+
+The YAML has been updated for these changes. The latest version can be retrieved by using the `GET /api` call.
+
+At line 2646, the /machines path was added.\
+At line 2813, the machine property was added to the Content schema.\
+At line 3013, the machine property was added to the ContentForGet schema.
+
+For easier viewing, the YAMLs can also be compared here: [TextCompare](https://www.textcompare.org/yaml)
+
+## **3. 2025r5​**
+
+### **3.1. Order number for cast members in content API​**
+
+On content, cast members can be defined in the **CAST** [list](https://whatsonknowledgebase.mediagenix.tv/2025r5/Content/Product/Product_Navigator/Layout/Product_Workspace_-_General.htm#CAST), where they have a number to determine the order.
+
+Previously, this order number was not part of the `cast` array in the content API. The items in the array were also not sorted according to this number when using a GET call, but based on OID. In a POST or PUT call, the order of the list was implicitly matched to the order number when created.
+
+From this version, the `number` attribute has been added to the `cast` array of the following calls:
+
+- `GET program/episode/season/series/versions/contentCollections`
+- `POST/PUT program/episode/season/series/versions/contentCollections`
+
+It corresponds to the order number of each cast member.
+
+An example of the `GET /programs` call:
+
+```
+{...
+"cast": [
+    {
+        "personId": "1336589517",
+        "castFunction": "Actor",
+        "castType": "actors",
+        "role": null,
+        "number": 1
+    },
+    {
+        "personId": "9501482769",
+        "castFunction": "Producer",
+        "castType": null,
+        "role": null,
+        "number": 2
+    }
+],
+"originalLanguage": "TestPSILanguage2",
+"contentTargetGroup": "TestCategorySecondary2",
+"content": "TestPSIContents1",
+...}
+```
+
+In the GET calls, the members in the `cast` array are now sorted on this number.
+
+In the POST and PUT calls, if the number is
+
+- <u>not provided</u> in the call, the cast list is sorted based on the order in the `cast` array, meaning the first cast item will get order number 1, the second 2…
+- <u>provided</u>, the cast members are ordered based on the defined number. The numbers do not have to be in order in the call, meaning a member with number 2 can come before a member with 1 in the array, and they will still be ordered correctly.
+  - However, no numbers can be skipped in the array, meaning 1, 2, 4 will not be accepted. If a number is skipped, the following error is returned:
+
+```
+{
+    "statusCode": "422",
+    "message": "Operation cannot be completed due to violations",
+    "timestamp": "2025-06-10T14:00:39Z",
+    "concept": "Program",
+    "id": "143048527",
+    "errors": [
+        {
+            "errorCode": "5672",
+            "description": "The sequence number 'No.' should be between 1 and 2.",
+            "data": [
+                "No.",
+                "2"
+            ]
+        }
+    ]
+}
+```
+
+- If a number is included twice in the array, the following error is returned:
+
+```
+{
+    "statusCode": "422",
+    "message": "Operation cannot be completed due to violations",
+    "timestamp": "2025-06-10T13:58:43Z",
+    "concept": "Program",
+    "id": "143048527",
+    "errors": [
+        {
+            "errorCode": "615",
+            "description": "The combination of following fields has to be unique: No., Product.",
+            "data": [
+                "No., Product"
+            ]
+        }
+    ]
+}
+```
+
+**_API developers_**
+
+The YAML has been updated for these changes. The latest version can be retrieved by using the `GET /api` call.
+
+The following has changed:\
+At line 3565, the number property was added to the CastMember schema.
+
+For easier viewing, the YAMLs can also be compared here: [TextCompare](https://www.textcompare.org/yaml)
