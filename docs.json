@@ -7,8 +7,8 @@
   },
   "navigation": {
     "pages": [
-    "getting-started.mdx",
-    "release-notes-2025.mdx"
+    "getting-started",
+    "release-notes-2025"
     ]
   }
 }
