@@ -7,7 +7,7 @@
   },
   "navigation": {
     "pages": [
-    "getting-started",
+    "user-guide/getting-started",
     "release-notes-2025"
     ]
   }
