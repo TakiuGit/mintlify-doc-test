@@ -41,13 +41,13 @@ In 2025r4, the [calculation of machines was improved](https://whatsonknowledgeba
 
 From this version, the `machine` attribute has been added to the following calls:
 
-| Concept  | Calls                                                                                                                     |
-| :------- | :------------------------------------------------------------------------------------------------------------------------ |
-| Products | GET /products/{contentId}                                                                                                 |
-| Programs | - POST /programs - PUT /programs{contentId} - GET /programs/{contentId} - POST /programs/{contentId}/version/{versionId}  |
-| Series   | - POST /series - PUT /series/{contentId} - GET /series/{contentId}                                                        |
-| Seasons  | - POST /seasons - PUT /seasons/{contentId} - GET /seasons/{contentId} - POST /programs/{contentId}/version/{versionId}    |
-| Episodes | - POST /episodes - PUT /episodes/{contentId} - GET /episodes/{contentId} - POST /programs/{contentId}/version/{versionId} |
+| Concept  | Calls                                                                                                             |
+| :------- | :---------------------------------------------------------------------------------------------------------------- |
+| Products | GET /products/contentId                                                                                           |
+| Programs | - POST /programs - PUT /programscontentId - GET /programs/contentId - POST /programs/contentId/version/versionId  |
+| Series   | - POST /series - PUT /series/contentId - GET /series/contentId                                                    |
+| Seasons  | - POST /seasons - PUT /seasons/contentId - GET /seasons/contentId - POST /programs/contentId/version/versionId    |
+| Episodes | - POST /episodes - PUT /episodes/contentId - GET /episodes/contentId - POST /programs/contentId/version/versionId |
 
 When the parameters for [version](https://www.mediagenix.tv/api-j7d2XD7sFqcdWGeS/docs/Latest_version/Content/Mediagenix%20Base/Content%20API/Release%20notes%202024.htm#Paramete) and [series to episode](https://www.mediagenix.tv/api-j7d2XD7sFqcdWGeS/docs/Latest_version/Content/Mediagenix%20Base/Content%20API/Release%20notes%202023.htm#Paramete3) inheritance are added to the URL of the applicable calls, the machine is also inherited.
 
@@ -150,7 +150,7 @@ In the POST and PUT calls, if the number is
 - <u>provided</u>, the cast members are ordered based on the defined number. The numbers do not have to be in order in the call, meaning a member with number 2 can come before a member with 1 in the array, and they will still be ordered correctly.
   - However, no numbers can be skipped in the array, meaning 1, 2, 4 will not be accepted. If a number is skipped, the following error is returned:
 
-```
+```json
 {
     "statusCode": "422",
     "message": "Operation cannot be completed due to violations",
@@ -172,7 +172,7 @@ In the POST and PUT calls, if the number is
 
 - If a number is included twice in the array, the following error is returned:
 
-```
+```json
 {
     "statusCode": "422",
     "message": "Operation cannot be completed due to violations",
