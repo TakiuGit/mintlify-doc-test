@@ -8,8 +8,13 @@
   "navigation": {
     "pages": [
     "user-guide/getting-started",
-    "release-notes-2025",
-    "user-guide/content_api.yaml"
+    "release-notes-2025"
+    ],
+    "groups": [
+    {
+      "group": "Content API",
+      "openapi": "user-guide/content_api.yaml"
+    }
     ]
   }
 }
